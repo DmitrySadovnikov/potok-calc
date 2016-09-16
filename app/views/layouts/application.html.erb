@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PotokCalc</title>
+    <title>Поток</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
 
   <body>
-    <%= yield %>
+  <%= render 'shared/navigation' %>
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
   </body>
 </html>
+
+<script>
+  $(".alert-success, .alert-notice" ).fadeOut(3000);
+</script>
