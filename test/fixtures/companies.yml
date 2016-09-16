@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  money: 1
+  term: 1
+  annual_rate: 1
+  period: 1
+  default_rate: 1
+
+two:
+  name: MyString
+  money: 1
+  term: 1
+  annual_rate: 1
+  period: 1
+  default_rate: 1
