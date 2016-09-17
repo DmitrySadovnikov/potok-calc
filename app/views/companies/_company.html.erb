@@ -1,0 +1,4 @@
+<li>
+  <strong><%= company.name %></strong>|<%= link_to 'Подробнее', company %>|<%= link_to 'Редактировать', edit_company_path(company) %>
+  |<%= link_to 'Удалить', company, method: :delete, data: { confirm: 'Вы уверены?' } %>
+</li>

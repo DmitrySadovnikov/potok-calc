@@ -1,6 +1,9 @@
-<h1>Editing Company</h1>
+<div class="container">
+  <div class="col-xs-12">
+    <h1>Редактирование компании</h1>
+  </div>
+  <%= render 'form', company: @company %>
 
-<%= render 'form', company: @company %>
-
-<%= link_to 'Show', @company %> |
-<%= link_to 'Back', companies_path %>
+  <div class="col-xs-12" style="margin-bottom: 40px">
+  </div>
+</div>
