@@ -67,7 +67,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate, payments_attributes: [:id, :name, :amount, :_destroy])
-      # params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate)
+      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate, :monthly_debt, :monthly_percent, :monthly_common, :payout, :paid_percent, :paid_debt, :yield_pa,  payments_attributes: [:id, :name, :amount, :_destroy])
     end
 end
