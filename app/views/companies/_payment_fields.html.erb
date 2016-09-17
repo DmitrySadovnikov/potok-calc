@@ -1,0 +1,11 @@
+<fieldset>
+  <%= f.label :name, "Название платежа" %><br/>
+  <%= f.text_field :name %><br/>
+
+  <%= f.label :amount, "Сумма платежа" %><br/>
+  <%= f.number_field :amount %><br/>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>
+

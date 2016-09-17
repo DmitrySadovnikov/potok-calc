@@ -1,47 +1,77 @@
 <%= form_for(company) do |f| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+    <% if company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% company.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <div class="field">
+      <%= f.label :money %>
+      <%= f.number_field :money %>
+    </div>
 
-  <div class="field">
-    <%= f.label :money %>
-    <%= f.number_field :money %>
-  </div>
+    <div class="field">
+      <%= f.label :term %>
+      <%= f.number_field :term %>
+    </div>
 
-  <div class="field">
-    <%= f.label :term %>
-    <%= f.number_field :term %>
-  </div>
+    <div class="field">
+      <%= f.label :annual_rate %>
+      <%= f.number_field :annual_rate %>
+    </div>
 
-  <div class="field">
-    <%= f.label :annual_rate %>
-    <%= f.number_field :annual_rate %>
-  </div>
+    <div class="field">
+      <%= f.label :period %>
+      <%= f.number_field :period %>
+    </div>
 
-  <div class="field">
-    <%= f.label :period %>
-    <%= f.number_field :period %>
-  </div>
+    <div class="field">
+      <%= f.label :default_rate %>
+      <%= f.number_field :default_rate %>
+    </div>
 
-  <div class="field">
-    <%= f.label :default_rate %>
-    <%= f.number_field :default_rate %>
-  </div>
+    <h3>Payments</h3>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+
+      <%= f.fields_for :payments do |builder| %>
+          <% if false %>
+          <fields>
+            <%= builder.label :name %>
+            <%= builder.text_area :name %>
+
+
+            <%= builder.label :amount %>
+            <%= builder.text_area :amount %>
+
+            <br>
+
+            <%= builder.check_box :_destroy %>
+            <%= builder.label :_destroy, "Remove" %>
+
+
+          </fields>
+          <% end %>
+          <%= render "payment_fields", :f => builder %>
+
+      <%end %>
+
+      <p><%= link_to_add_fields "Добавить платеж", f, :payments %>
+
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

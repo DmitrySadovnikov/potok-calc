@@ -15,6 +15,9 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    6.times do
+      @company.payments.build
+    end
   end
 
   # GET /companies/1/edit
@@ -69,6 +72,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate)
+      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate, payments_attributes: [:name, :amount])
     end
 end
