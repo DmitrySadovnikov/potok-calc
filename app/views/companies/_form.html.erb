@@ -2,52 +2,81 @@
 
 <%= form_for @company do |f| %>
 
-      <div class="col-xs-5">
-        <%= f.label :name %>
-      </div>
-      <div class="col-xs-7">
-        <%= f.text_field :name %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :name, "Название" %>
+    </div>
+    <div class="col-xs-7">
+      <%= f.text_field :name %>
+    </div>
 
-      <div class="col-xs-5">
-        <%= f.label :money %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :money, "Сумма" %>
+    </div>
 
-      <div class="col-xs-7">
-        <%= f.number_field :money %>
-      </div>
+    <div class="col-xs-7">
+      <%= f.number_field :money, :step => 'any' %>
+    </div>
 
-      <div class="col-xs-5">
-        <%= f.label :term %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :term, "Срок (мес)" %>
+    </div>
 
-      <div class="col-xs-7">
-        <%= f.number_field :term %>
-      </div>
+    <div class="col-xs-7">
+      <%= f.number_field :term %>
+    </div>
 
-      <div class="col-xs-5">
-        <%= f.label :annual_rate %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :annual_rate, "Ставка годовых" %>
+    </div>
 
-      <div class="col-xs-7">
-        <%= f.number_field :annual_rate %>
-      </div>
+    <div class="col-xs-7">
+      <%= f.number_field :annual_rate, :step => 'any' %>
+    </div>
 
-      <div class="col-xs-5">
-        <%= f.label :period %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :period, "Период" %>
+    </div>
 
-      <div class="col-xs-7">
-        <%= f.number_field :period %>
-      </div>
+    <div class="col-xs-7">
+      <%= f.number_field :period %>
+    </div>
 
-      <div class="col-xs-5">
-        <%= f.label :default_rate %>
-      </div>
+    <div class="col-xs-5">
+      <%= f.label :default_rate, "Ставка по просрочке (годовых)" %>
+    </div>
 
-      <div class="col-xs-7">
-        <%= f.number_field :default_rate %>
-      </div>
+    <div class="col-xs-7">
+      <%= f.number_field :default_rate, :step => 'any' %>
+    </div>
+
+    <div class="col-xs-5">
+      <%= f.label :monthly_debt, "Ежемесячный по долгу" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :monthly_debt, :step => 'any' %>
+    </div>
+    <div class="col-xs-5">
+      <%= f.label :monthly_percent, "Ежемесячный по процентам" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :monthly_percent, :step => 'any' %>
+    </div>
+    <div class="col-xs-5">
+      <%= f.label :monthly_common, "Общий ежемесячный" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :monthly_common, :step => 'any' %>
+    </div>
+    <div class="col-xs-5">
+      <%= f.label :payout, "Сумма выплаты" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :payout, :step => 'any' %>
+    </div>
 
     <br>
 
@@ -63,9 +92,34 @@
       <div class="col-xs-12">
         <%= link_to_add_association "Добавить платеж", f, :payments %>
       </div>
-
     </div>
+
+    <br>
+
+    <div class="col-xs-5">
+      <%= f.label :paid_percent, "Выплаченно %:" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :paid_percent, :step => 'any' %>
+    </div>
+    <div class="col-xs-5">
+      <%= f.label :paid_debt, "Выплачено ОД" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :paid_debt, :step => 'any' %>
+    </div>
+    <div class="col-xs-5">
+      <%= f.label :yield_pa, "Доходность годовых" %>
+    </div>
+
+    <div class="col-xs-7">
+      <%= f.number_field :yield_pa, :step => 'any' %>
+    </div>
+
     <div class="col-xs-12" style="margin-top: 20px">
       <%= f.submit "Сохранить", class: "btn btn-default" %>
     </div>
+
 <% end %>

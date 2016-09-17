@@ -3,32 +3,58 @@
     <h1>Компания <%= @company.name %></h1>
 
     <p>
-      <strong>Money:</strong>
+      <strong>Сумма:</strong>
       <%= @company.money %>
     </p>
 
     <p>
-      <strong>Term:</strong>
+      <strong>Срок (мес):</strong>
       <%= @company.term %>
     </p>
 
     <p>
-      <strong>Annual rate:</strong>
+      <strong>Ставка годовых:</strong>
       <%= @company.annual_rate %>
     </p>
 
     <p>
-      <strong>Period:</strong>
+      <strong>Период:</strong>
       <%= @company.period %>
     </p>
 
     <p>
-      <strong>Default rate:</strong>
+      <strong>Ставка по просрочке (годовых):</strong>
       <%= @company.default_rate %>
     </p>
 
+    <p>
+      <strong>Ежемесячный по долгу:</strong>
+      <%= @company.monthly_debt %>
+    </p>
+
+
+    <p>
+      <strong>Ежемесячный по процентам:</strong>
+      <%= @company.monthly_percent %>
+    </p>
+
+
+    <p>
+      <strong>Общий ежемесячный:</strong>
+      <%= @company.monthly_common %>
+    </p>
+
+    <p>
+      <strong>Сумма выплаты:</strong>
+      <%= @company.payout %>
+    </p>
+
+
+    <p>
+      <strong>Платежи:</strong>
+    </p>
+
     <% if @company.payments.any? %>
-        Платежи:
         <ul>
           <% @company.payments.each do |paym| %>
               <li>
@@ -37,6 +63,23 @@
           <% end %>
         </ul>
     <% end %>
+
+    <p>
+      <strong>Выплачено %:</strong>
+      <%= @company.paid_percent %>
+    </p>
+
+    <p>
+      <strong>Выплачено ОД:</strong>
+      <%= @company.paid_debt %>
+    </p>
+
+
+    <p>
+      <strong>Доходность годовых:</strong>
+      <%= @company.yield_pa %>
+    </p>
+
 
     <%= link_to 'Редактировать', edit_company_path(@company) %> |
     <%= link_to 'Назад', companies_path %>

@@ -6,11 +6,11 @@
 
   <div class="col-xs-5">
     <%= f.label :amount, "Сумма" %>
-    <%= f.number_field :amount %><br/>
+    <%= f.number_field :amount, :step => 'any' %>
   </div>
 
   <div class="col-xs-2">
-    <%= link_to_remove_association "remove", f %>
+    <%= link_to_remove_association "Удалить", f %>
   </div>
 </div>
 
