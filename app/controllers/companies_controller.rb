@@ -15,20 +15,18 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
-    6.times do
-      @company.payments.build
-    end
+    6.times { @company.payments.build }
   end
 
   # GET /companies/1/edit
   def edit
+    @company = Company.find_by(id: params[:id])
   end
 
   # POST /companies
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
@@ -43,14 +41,11 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
-    respond_to do |format|
-      if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-        format.json { render :show, status: :ok, location: @company }
-      else
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    @company = Company.find_by(id: params[:id])
+    if @company.update_attributes(company_params)
+      redirect_to company_path(@company)
+    else
+      render :edit
     end
   end
 
@@ -72,6 +67,7 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate, payments_attributes: [:name, :amount])
+      params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate, payments_attributes: [:id, :name, :amount, :_destroy])
+      # params.require(:company).permit(:name, :money, :term, :annual_rate, :period, :default_rate)
     end
 end
