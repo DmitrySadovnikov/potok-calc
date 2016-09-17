@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+html
+  position: relative
+  min-height: 100%
 
 body
   font-family: "Lato", Calibri, Arial, sans-serif
@@ -109,3 +112,20 @@ $dropDown       : false
     a
       color: $text-muted
 //
+
+
+//Alerts
+.alert
+  padding-top: 10px
+  position: absolute
+  margin: 0
+  border: none
+  width: 100%
+  text-align: center
+
+.alert-success, .alert-notice, #right_alert
+  color: #5cb85c
+
+.alert-danger, .alert-alert, #wrong_alert
+  color: #C32221
+////
