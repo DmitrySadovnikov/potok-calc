@@ -1,19 +1,24 @@
 <div ng-app="calc">
-    <h1>Инвестиционный калькулятор</h1>
+  <div class="title-text">
+    <h2>Инвестиционный калькулятор</h2>
     <br>
-    <form ng-controller="mainCtrl">
-      <h3>Сумма:</h3>
-      <input ng-change="compute()" ng-model="stats.investment" type="number">
-      <br>
-      <br>
-      <b>Ожидаемый годовой доход:</b>
-      <br>
-      <h3 class="result">{{stats.expected}}</h3>
-      <br>
-      <b>Фактический годовой доход:</b>
-      <br>
-      <h3 class="result">{{stats.real}}</h3>
-    </form>
+    <br>
+    <div class="col-xs-12 ">
+      <form ng-controller="mainCtrl">
+        <b>Сумма инвестиций:</b>
+        <input class="calc-field" ng-change="compute()" ng-model="stats.investment" type="number">
+        <br>
+        <br>
+        <b>Ожидаемый годовой доход:</b>
+        <br>
+        <h3 class="result">{{stats.expected || 0}}</h3>
+        <br>
+        <b>Фактический годовой доход:</b>
+        <br>
+        <h3 class="result">{{stats.real || 0}}</h3>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script>

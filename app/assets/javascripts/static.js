@@ -2,7 +2,6 @@ var app = angular.module('calc', []);
 
 app.controller('mainCtrl', function ($scope) {
     $scope.stats = {
-        investment: 0,
         expected: 0,
         real: 0
     };
