@@ -16,22 +16,27 @@
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "font-awesome-sprockets"
+@import "font-awesome"
 
 html
   position: relative
   min-height: 100%
 
 body
-  font-family: "Lato", Calibri, Arial, sans-serif
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif
   margin-bottom: 60px
   padding: 50px 0px 0px 0px
+  background: url(background.jpg) center no-repeat
+  background-color: #7a7a7a
+  background-size: cover
 
 
 //Navbar
-$bgDefault      : #2c738f
-$bgHighlight    : #3da2a6
-$colDefault     : #ecf0f1
-$colHighlight   : #d7f4f6
+$bgDefault      : #ffffff
+$bgHighlight    : #ffffff
+$colDefault     : #777777
+$colHighlight   : #333333
 $dropDown       : false
 .navbar-default
   background-color: $bgDefault
@@ -39,7 +44,7 @@ $dropDown       : false
   .navbar-brand
     color: $colDefault
     &:hover, &:focus
-      color: $colHighlight
+      color: $colDefault
   .navbar-text
     color: $colDefault
   .navbar-nav
@@ -80,7 +85,7 @@ $dropDown       : false
       background-color: $colDefault
   .navbar-collapse,
   .navbar-form
-    border-color: $colDefault
+    border: none
   .navbar-link
     color: $colDefault
     &:hover
@@ -95,23 +100,6 @@ $dropDown       : false
       > a, > a:hover, > a:focus
         color: $colHighlight
         background-color: $bgHighlight
-//
-
-#footer
-  position: absolute
-  bottom: 0
-  width: 100%
-  /* Set the fixed height of the footer here */
-  height: 60px
-  background-color: rgb(240, 237, 234)
-  .container
-    padding-right: 15px
-    padding-left: 15px
-    .text-muted
-      margin: 20px 0
-    a
-      color: $text-muted
-//
 
 
 //Alerts
