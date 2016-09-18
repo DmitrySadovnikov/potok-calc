@@ -1,3 +1,21 @@
-<p>hello</p>
+<div ng-app="calc">
+    <h1>Инвестиционный калькулятор</h1>
+    <br>
+    <form ng-controller="mainCtrl">
+      <h3>Сумма:</h3>
+      <input ng-change="compute()" ng-model="stats.investment" type="number">
+      <br>
+      <br>
+      <b>Ожидаемый годовой доход:</b>
+      <br>
+      <h3 class="result">{{stats.expected}}</h3>
+      <br>
+      <b>Фактический годовой доход:</b>
+      <br>
+      <h3 class="result">{{stats.real}}</h3>
+    </form>
+</div>
 
-<%= link_to "Companies",  companies_path %>
+<script>
+  actual_yield = <%= @actual_yield %>;
+</script>
