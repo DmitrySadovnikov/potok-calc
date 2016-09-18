@@ -1,4 +1,11 @@
-<li>
-  <strong><%= company.name %></strong>|<%= link_to 'Подробнее', company %>|<%= link_to 'Редактировать', edit_company_path(company) %>
-  |<%= link_to 'Удалить', company, method: :delete, data: { confirm: 'Вы уверены?' } %>
-</li>
+<tr>
+  <td width="100%"><%= link_to "#{company.name}", company %></td>
+  <td><%= link_to edit_company_path(company) do %>
+        <i class="fa fa-edit"></i>
+    <% end %> </td>
+  <td><%= link_to company, method: :delete do %>
+        <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
+

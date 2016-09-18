@@ -1,16 +1,19 @@
 <div class="nested-fields">
+
   <div class="col-xs-5">
     <%= f.label :name, "Название" %>
-    <%= f.text_field :name %><br/>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="col-xs-5">
     <%= f.label :amount, "Сумма" %>
-    <%= f.number_field :amount, :step => 'any' %>
+    <%= f.number_field :amount, :step => 'any', class: "form-control" %>
   </div>
 
   <div class="col-xs-2">
-    <%= link_to_remove_association "Удалить", f %>
+    <br>
+    <%= link_to_remove_association f do %>
+        <i class="fa fa-trash"></i>
+    <% end %>
   </div>
 </div>
-
