@@ -1,86 +1,89 @@
-<%= render 'shared/errors', object: @company %>
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <%= render 'shared/errors', object: @company %>
 
-<%= form_for @company do |f| %>
+  <%= form_for @company do |f| %>
 
-    <div class="form-group">
-      <%= f.label :name, "Название" %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :name, "Название" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :money, "Сумма" %>
-      <%= f.number_field :money, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :money, "Сумма" %>
+        <%= f.number_field :money, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :term, "Срок (мес)" %>
-      <%= f.number_field :term, class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :term, "Срок (мес)" %>
+        <%= f.number_field :term, class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :annual_rate, "Ставка годовых" %>
-      <%= f.number_field :annual_rate, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :annual_rate, "Ставка годовых (коэффициент)" %>
+        <%= f.number_field :annual_rate, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :period, "Период" %>
-      <%= f.number_field :period, class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :period, "Период" %>
+        <%= f.number_field :period, class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :default_rate, "Ставка по просрочке (годовых)" %>
-      <%= f.number_field :default_rate, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :default_rate, "Ставка по просрочке (годовых, коэффициент)" %>
+        <%= f.number_field :default_rate, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :monthly_debt, "Ежемесячный по долгу" %>
-      <%= f.number_field :monthly_debt, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :monthly_debt, "Ежемесячный доход по долгу" %>
+        <%= f.number_field :monthly_debt, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :monthly_percent, "Ежемесячный по процентам" %>
-      <%= f.number_field :monthly_percent, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :monthly_percent, "Ежемесячный доход по процентам" %>
+        <%= f.number_field :monthly_percent, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :monthly_common, "Общий ежемесячный" %>
-      <%= f.number_field :monthly_common, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :monthly_common, "Общий ежемесячный доход" %>
+        <%= f.number_field :monthly_common, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :payout, "Сумма выплаты" %>
-      <%= f.number_field :payout, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :payout, "Сумма выплаты" %>
+        <%= f.number_field :payout, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div class="col-xs-12" style="margin-bottom: 20px; text-align: center">
+
       <label>Платежи:</label>
+
       <div id="payments">
-        <%= f.fields_for :payments do |builder| %>
-            <%= render 'payment_fields', f: builder %>
+        <%= f.fields_for :payments do |payment| %>
+            <%= render 'payment_fields', f: payment %>
         <% end %>
       </div>
-    </div>
+
 
       <div class="col-xs-12" style="margin-bottom: 20px; text-align: center">
         <br>
         <%= link_to_add_association "Добавить платеж", f, :payments %>
       </div>
 
-    <div class="form-group">
-      <%= f.label :paid_percent, "Выплаченно %" %>
-      <%= f.number_field :paid_percent, :step => 'any', class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :paid_debt, "Выплачено ОД" %>
-      <%= f.number_field :paid_debt, :step => 'any', class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :yield_pa, "Доходность годовых" %>
-      <%= f.number_field :yield_pa, :step => 'any', class: "form-control" %>
-    </div>
+      <div class="col-xs-12" style="padding: 0; margin-bottom: 15px">
+        <%= f.label :paid_percent, "Выплаченно %" %>
+        <%= f.number_field :paid_percent, :step => 'any', class: "form-control" %>
+      </div>
+      <div class="col-xs-12" style="padding: 0; margin-bottom: 15px">
+        <%= f.label :paid_debt, "Выплачено ОД" %>
+        <%= f.number_field :paid_debt, :step => 'any', class: "form-control" %>
+      </div>
+      <div class="col-xs-12" style="padding: 0; margin-bottom: 15px">
+        <%= f.label :yield_pa, "Доходность годовых (коэффициент)" %>
+        <%= f.number_field :yield_pa, :step => 'any', class: "form-control" %>
+      </div>
 
-    <div style="margin-top: 20px">
-      <%= f.submit "Сохранить", class: "btn btn-default" %>
-    </div>
+      <div class="col-xs-12" style="padding: 0; margin-top: 20px; text-align: center">
+        <%= f.submit "Сохранить", class: "btn btn-default" %>
+      </div>
 
-<% end %>
+  <% end %>
+</div>
