@@ -1,17 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  annual_rate: 1.1
+  default_rate: 1.1
+  money: 1.1
   name: MyString
-  money: 1
-  term: 1
-  annual_rate: 1
   period: 1
-  default_rate: 1
+  term: 1
+  monthly_debt: 1.1
+  monthly_percent: 1.1
+  monthly_common: 1.1
+  payout: 1.1
+  paid_percent: 1.1
+  paid_debt: 1.1
+  yield_pa: 1.1
 
 two:
+  annual_rate: 1.1
+  default_rate: 1.1
+  money: 1.1
   name: MyString
-  money: 1
-  term: 1
-  annual_rate: 1
   period: 1
-  default_rate: 1
+  term: 1
+  monthly_debt: 1.1
+  monthly_percent: 1.1
+  monthly_common: 1.1
+  payout: 1.1
+  paid_percent: 1.1
+  paid_debt: 1.1
+  yield_pa: 1.1

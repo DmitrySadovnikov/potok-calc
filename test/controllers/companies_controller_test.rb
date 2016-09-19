@@ -17,7 +17,19 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: { annual_rate: @company.annual_rate, default_rate: @company.default_rate, money: @company.money, name: @company.name, period: @company.period, term: @company.term } }
+      post companies_url, params: { company: { annual_rate: @company.annual_rate,
+                                               default_rate: @company.default_rate,
+                                               money: @company.money,
+                                               name: @company.name,
+                                               period: @company.period,
+                                               term: @company.term,
+                                               monthly_debt: @company.monthly_debt,
+                                               monthly_percent: @company.monthly_percent,
+                                               monthly_common: @company.monthly_common,
+                                               payout: @company.payout,
+                                               paid_percent: @company.paid_percent,
+                                               paid_debt: @company.paid_debt,
+                                               yield_pa: @company.yield_pa} }
     end
 
     assert_redirected_to company_url(Company.last)
@@ -34,7 +46,20 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: { annual_rate: @company.annual_rate, default_rate: @company.default_rate, money: @company.money, name: @company.name, period: @company.period, term: @company.term } }
+    patch company_url(@company),
+          params: { company: { annual_rate: @company.annual_rate,
+                               default_rate: @company.default_rate,
+                               money: @company.money,
+                               name: @company.name,
+                               period: @company.period,
+                               term: @company.term,
+                               monthly_debt: @company.monthly_debt,
+                               monthly_percent: @company.monthly_percent,
+                               monthly_common: @company.monthly_common,
+                               payout: @company.payout,
+                               paid_percent: @company.paid_percent,
+                               paid_debt: @company.paid_debt,
+                               yield_pa: @company.yield_pa} }
     assert_redirected_to company_url(@company)
   end
 
